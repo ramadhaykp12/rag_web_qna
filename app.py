@@ -13,14 +13,14 @@ load_dotenv()
 google_api_key = os.getenv("GOOGLE_API_KEY")
 
 # Inisialisasi halaman Streamlit
-st.set_page_config(page_title="PDF Q&A with Gemini", layout="wide")
-st.title("Chat with your PDF using Gemini")
+st.set_page_config(page_title="RAG PDF Q&A with Gemini", layout="wide")
+st.title("Chat with your Document")
 
 # Upload PDF
-uploaded_file = st.file_uploader("Unggah file PDF Anda", type=["pdf"])
+uploaded_file = st.file_uploader("Upload your PDF file", type=["pdf"])
 
 if uploaded_file is not None:
-    with st.spinner("Memproses dokumen..."):
+    with st.spinner("Processing the document"):
         # Simpan PDF ke sementara
         temp_pdf = "temp.pdf"
         with open(temp_pdf, "wb") as f:
@@ -47,17 +47,17 @@ if uploaded_file is not None:
         retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
         qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
-        st.success("Dokumen berhasil diproses!")
+        st.success("Document Procssing success")
 
         # Kolom untuk menanyakan sesuatu
-        st.subheader("Tanyakan sesuatu tentang dokumen Anda")
-        user_query = st.text_input("Masukkan pertanyaan:")
+        st.subheader("Ask anything about your uploaded document")
+        user_query = st.text_input("Insert the question:")
 
-        if st.button("Tanyakan"):
+        if st.button("Submit"):
             if user_query.strip() == "":
-                st.warning("Masukkan pertanyaan terlebih dahulu.")
+                st.warning("Please insert the question.")
             else:
-                with st.spinner("Sedang mencari jawaban..."):
+                with st.spinner("Processing the answer..."):
                     response = qa_chain.invoke({"query": user_query})
-                    st.markdown("### 💬 Jawaban:")
+                    st.markdown("Answer:")
                     st.write(response["result"])
