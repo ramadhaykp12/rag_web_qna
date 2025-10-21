@@ -70,11 +70,3 @@ Then open the provided local URL in your browser (usually `http://localhost:8501
 * **Hugging Face Embeddings**
 * **Streamlit**
 
----
-
-## Future Improvements
-
-* Support for multiple document uploads
-* Add chat history memory
-* Integrate vector database (FAISS or Chroma)
-* Improved UI/UX design
