@@ -22,7 +22,7 @@ The **embedding model** used in this project is an open-source model from **Hugg
 Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/rag-qna-webapp.git
+git clone https://github.com/ramadhaykp12/rag-qna-webapp.git
 cd rag-qna-webapp
 ```
 
@@ -69,12 +69,6 @@ Then open the provided local URL in your browser (usually `http://localhost:8501
 * **Gemini Flash 2.5 API**
 * **Hugging Face Embeddings**
 * **Streamlit**
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
