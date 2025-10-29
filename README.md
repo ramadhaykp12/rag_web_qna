@@ -22,8 +22,8 @@ The **embedding model** used in this project is an open-source model from **Hugg
 Clone this repository:
 
 ```bash
-git clone https://github.com/ramadhaykp12/rag-qna-webapp.git
-cd rag-qna-webapp
+git clone https://github.com/ramadhaykp12/rag_qna_webapp.git
+cd rag_qna_webapp
 ```
 
 Install all required dependencies:
